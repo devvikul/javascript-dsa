@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      let items = [9, 11, 13, 15, 17];
+      let newEle = document.getElementById("item").value;
+      let position = document.getElementById("position").value;
+      function addItem() {
+        // let newEle = 9999;
+        // let position = 2;
+
+        newEle = parseInt(newEle);
+        console.log("item", newEle.value);
+        console.log("position", position.value);
+        for (let i = items.length - 1; i >= 0; i--) {
+          console.log("i :", i + "&" + "position: ", position);
+          console.log(items[i]);
+          if (i >= position) {
+            console.log("insideeeeeeeeeeee");
+            items[i + 1] = items[i];
+            if (i == position) {
+              items[i] = newEle;
+            }
+          }
+          console.log(items);
+        }
+      }
+
+      function addElementByMethod() {
+        items.splice(position, 0, newEle);
+        console.log("items", items);
+      }
+    </script>
+  </head>
+  <body>
+    <h1>DSA</h1>
+    <div>
+      <input type="number" id="position" placeholder="enter position" />
+      <input type="number" id="item" placeholder="enter item" />
+      <button onclick="addItem()">Add item</button>
+      <button onclick="addElementByMethod()">Add item by method</button>
+    </div>
+  </body>
+</html>
